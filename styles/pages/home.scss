@@ -1,0 +1,166 @@
+@use "../variables/colors" as *;
+@use "../variables/media" as *;
+@use "../variables/font" as *;
+@use "../helpers/mixins" as *;
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: $pale_blue;
+}
+
+main {
+  @include media("mobile") {
+    padding: 20px;
+  }
+  section {
+    article {
+      @include flex-sb;
+      flex-direction: column;
+      align-items: stretch;
+      text-align: center;
+      background-color: $white;
+      border-radius: 20px;
+      max-width: 450px;
+      overflow: hidden;
+      .img {
+        img {
+          width: 100%;
+        }
+      }
+      .text {
+        @include flex-sb;
+        flex-direction: column;
+        gap: 30px;
+        padding: 50px;
+        .description {
+          h1 {
+            font: {
+              size: $font-size + 10;
+              weight: 800;
+            }
+            color: $dark_blue;
+            margin-bottom: 20px;
+          }
+          p {
+            color: $desaturated;
+            font-size: $font-size + 1;
+            margin-bottom: 20px;
+            line-height: 1.5;
+          }
+          .plan {
+            @include flex-sb;
+            background-color: $very_pale_blue;
+            border-radius: 10px;
+            padding: 25px;
+            .plan-text {
+              @include flex-sb;
+              gap: 20px;
+              .details {
+                h2 {
+                  font: {
+                    size: $font-size + 1;
+                    weight: 900;
+                  }
+                  color: $dark_blue;
+                  margin-bottom: 5px;
+                }
+                span {
+                  color: $desaturated;
+                  font-size: $font-size + 1;
+                }
+              }
+            }
+            a {
+              color: $bright_blue;
+              font: {
+                size: $font-size - 1;
+                weight: 700;
+              }
+              text-decoration: underline;
+              transition: 0.2s;
+              &:hover {
+                color: $hover;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+        button {
+          font: {
+            size: $font-size - 1;
+            weight: 700;
+            family: inherit;
+          }
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
+          color: $desaturated;
+          transition: 0.2s;
+        }
+        button:nth-of-type(1) {
+          color: $white;
+          background-color: $bright_blue;
+          width: 100%;
+          padding: 15px;
+          border-radius: 10px;
+          box-shadow: 0 10px 20px $blue_shadow;
+          &:hover {
+            background-color: $hover;
+          }
+        }
+        button:nth-of-type(2):hover {
+          color: $dark_blue;
+        }
+      }
+    }
+    @include media("mobile") {
+      padding: 20px;
+      article {
+        .text {
+          padding: 30px;
+          gap: 25px;
+          .description {
+            h1 {
+              font-size: $font-size + 6;
+            }
+            p {
+              font-size: $font-size;
+            }
+            .plan {
+              padding: 15px;
+              .plan-text {
+                .details {
+                  h2 {
+                    font-size: $font-size - 2;
+                    margin-bottom: 3px;
+                  }
+                  span {
+                    font-size: $font-size - 2;
+                  }
+                }
+              }
+              a {
+                font-size: $font-size - 3;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  font-weight: 500;
+}
+footer a {
+  color: $bright_blue;
+}
